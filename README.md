@@ -1,4 +1,4 @@
-# Expert Project — Ship your workflow as a plugin
+## Project — Ship your workflow as a plugin
 
 Across the course you've built scoped subagents, orchestrated them into workflows, written skills, commands, and hooks, and learned how a plugin packages all of it. Now you'll put it together into one real, shareable thing: a plugin that carries a multi-agent workflow, tested against a live codebase and published so anyone can install it with a single command.
 
@@ -6,7 +6,7 @@ Lean on Claude as you go: ask it to scaffold files, look up current syntax, and 
 
 ---
 
-## The repository
+### The repository
 
 We've provided a repo for your plugin — this is where you'll assemble and publish it. Build and test it against the course API project you've worked in since the Beginner projects, so your subagents and workflow operate on real code rather than a toy example.
 
@@ -14,7 +14,7 @@ By the end, the provided repo will be two things at once: the plugin itself, and
 
 ---
 
-## What you'll build
+### What you'll build
 
 A single plugin that bundles:
 
@@ -25,7 +25,7 @@ A single plugin that bundles:
 
 ---
 
-## Before you start
+### Before you start
 
 - Have the provided repo cloned, and the course API project handy to test against.
 - Skim back over Unit 8 (creating, scoping, and orchestrating subagents) and Unit 9 (plugin structure, `${CLAUDE_PLUGIN_ROOT}`, marketplaces, versioning) — you'll use all of it.
@@ -33,12 +33,12 @@ A single plugin that bundles:
 
 ---
 
-## Tasks
+### Tasks
 
-**Task 1 — Scaffold the plugin.**
+#### Task 1 — Scaffold the plugin.
 In the provided repo, create the plugin structure: `.claude-plugin/plugin.json` with a `name` and a starting `version`, the component folders you'll need at the root, and a `README.md`. Confirm the layout is right — only `plugin.json` lives inside `.claude-plugin/`, everything else sits at the root.
 
-**Task 2 — Build two scoped subagents.**
+#### Task 2 — Build two scoped subagents.
 Add at least two custom subagents in `agents/`. For each one:
 - a `description` that names when to use it, in the words a real situation would use;
 - a body that says what to do and what to return;
@@ -47,19 +47,19 @@ Add at least two custom subagents in `agents/`. For each one:
 
 Make them genuinely different — for example, a read-only reviewer and an agent that writes or edits.
 
-**Task 3 — Orchestrate them into a workflow command.**
+#### Task 3 — Orchestrate them into a workflow command.
 Add a command in `commands/` whose body runs your subagents as a workflow. It must include at least one parallel step and one dependent (sequential) step — independent work running together, and a step that waits for earlier results. Write the orchestration in plain language, the command is the one-word trigger for the whole flow.
 
-**Task 4 — Round out the bundle: a skill and a hook.**
+#### Task 4 — Round out the bundle: a skill and a hook.
 Add one skill (`skills/<name>/SKILL.md`) and one hook (`hooks/hooks.json`) that fit your plugin's theme. If the hook runs a bundled script, reference it through `${CLAUDE_PLUGIN_ROOT}` so it resolves wherever the plugin installs — don't hardcode a path.
 
-**Task 5 — Test it locally.**
+#### Task 5 — Test it locally.
 Load the plugin with `claude --plugin-dir .` from the repo root and run it against the course API project. Confirm each piece fires by its namespaced name, and that your workflow command orchestrates the subagents in the right order. Use `/reload-plugins` to pick up edits as you refine. Fix anything that doesn't load — start by checking folder placement.
 
-**Task 6 — Publish it as a marketplace.**
+#### Task 6 — Publish it as a marketplace.
 Add `.claude-plugin/marketplace.json` listing your plugin (its `name` matching `plugin.json`, `source: "./"`, a one-line description). Commit and push. Then, as your own first user, run `/plugin marketplace add <your repo>` and `/plugin install <your-plugin>@<your-marketplace>` in a fresh session, and confirm everything installs and runs cleanly.
 
-**Task 7 — Document it in `NOTES.md`.**
+#### Task 7 — Document it in `NOTES.md`.
 Add a `NOTES.md` to the repo covering:
 - what the plugin does and how to install it;
 - one scoping decision and why you made it (why a subagent got the tools or model it did);
@@ -67,7 +67,7 @@ Add a `NOTES.md` to the repo covering:
 
 ---
 
-## Definition of Done
+### Definition of Done
 
 - [ ] The repo has a valid plugin: `.claude-plugin/plugin.json` with `name` and `version`, component folders at the root, and a `README.md`.
 - [ ] At least two subagents in `agents/`, each with a sharp description, a body that states what to return, a scoped `tools` line, and a fitting `model`.
@@ -80,13 +80,13 @@ Add a `NOTES.md` to the repo covering:
 
 ---
 
-## How to submit
+### How to submit
 
 Push your plugin repo and share its link. Make sure `marketplace.json`, `plugin.json`, all component folders, the `README.md`, and `NOTES.md` are committed, and that the repo installs as a marketplace from a clean checkout.
 
 ---
 
-## How it's checked
+### How it's checked
 
 A reviewer will:
 - read your `marketplace.json` and `plugin.json`, then add and install your plugin from the repo exactly as a teammate would;
