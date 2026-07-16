@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    {
+      "name": "course-api-quality-workflow",
+      "source": "./",
+      "description": "Multi-agent quality workflow for reviewing and improving the course API"
+    }
+  ]
+}
