@@ -1,8 +1,15 @@
 {
-  "post-command": [
-    {
-      "name": "plugin-notify",
-      "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/notify.js"
-    }
-  ]
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/notify.js"
+          }
+        ]
+      }
+    ]
+  }
 }
